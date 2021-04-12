@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --background: #191622;
+  --background-dark: rgb(19, 17, 27);
+  --background-light: rgb(32, 27, 45);
+  --cyan: rgb(71, 194, 225);
+  --green: rgb(103, 228, 116);
+  --red: rgb(228, 89, 89);
+  --pink: rgb(241, 121, 198);
+  --yellow: rgb(235, 220, 92);
+
+  --text: rgb(235, 235, 235);
+  --comment: rgb(90, 75, 129);
+  --line-number: rgb(90, 75, 129);
+  --number: var(--cyan);
+  --type-specifier: var(--pink);
+  --property: var(--green);
+  --attribute: var(--green);
+  --keyword: var(--pink);
+  --string: var(--yellow);
+  --variable: var(--text);
+  --bracket: var(--text);
+  --error: var(--red);
+}
