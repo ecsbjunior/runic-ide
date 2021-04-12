@@ -1,0 +1,105 @@
+/*
+  Name:       Omni
+  Author:     Evandro Junior (ecsb.junior@gmail.com)
+*/
+
+.cm-s-omni.CodeMirror {
+  font-family: 'Fira Code', monospace;
+  font-size: 16px;
+  color: var(--text);
+  
+  height: 100vh;
+
+  background-color: var(--background);
+}
+
+.cm-s-omni div.CodeMirror-selected {
+  background: var(--background-light);
+}
+
+.cm-s-omni .CodeMirror-gutters {
+  background: var(--background);
+  border-right: 0;
+}
+
+.cm-s-omni .CodeMirror-guttermarker {
+  color: #ac4142;
+}
+
+.cm-s-omni .CodeMirror-guttermarker-subtle {
+  color: red;
+}
+
+.cm-s-omni .CodeMirror-linenumber {
+  color: var(--line-number);
+}
+
+.cm-s-omni .CodeMirror-cursor {
+  border-left: 1px solid var(--text);
+}
+
+.cm-s-omni span.cm-comment {
+  color: var(--comment);
+}
+
+.cm-s-omni span.cm-atom {
+  color: var(--type-specifier);
+}
+
+.cm-s-omni span.cm-number {
+  color: var(--number);
+}
+
+.cm-s-omni span.cm-property {
+  color: var(--property);
+}
+
+.cm-s-omni span.cm-attribute {
+  color: var(--attribute);
+}
+
+.cm-s-omni span.cm-keyword {
+  color: var(--keyword);
+}
+
+.cm-s-omni span.cm-string {
+  color: var(--string);
+}
+
+.cm-s-omni span.cm-variable {
+  color: var(--variable);
+}
+
+.cm-s-omni span.cm-variable-2 {
+  color: var(--variable);
+}
+
+.cm-s-omni span.cm-def {
+  color: var(--variable);
+}
+
+.cm-s-omni span.cm-bracket {
+  color: var(--bracket);
+}
+
+.cm-s-omni span.cm-tag {
+  color: #ac4142;
+}
+
+.cm-s-omni span.cm-link {
+  color: #aa759f;
+}
+
+.cm-s-omni span.cm-error {
+  background: var(--background-dark);
+  color: var(--error);
+}
+
+.cm-s-omni .CodeMirror-activeline-background {
+  background: #202020;
+}
+
+.cm-s-omni .CodeMirror-matchingbracket {
+  text-decoration: underline;
+  color: white!important;
+}
