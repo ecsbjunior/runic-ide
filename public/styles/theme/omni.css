@@ -13,6 +13,15 @@
   background-color: var(--background);
 }
 
+.CodeMirror-vscrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.CodeMirror-vscrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--background-light);
+}
+
+
 .cm-s-omni div.CodeMirror-selected {
   background: var(--background-light);
 }
@@ -111,7 +120,7 @@
 }
 
 .cm-s-omni span.cm-error {
-  background: var(--background-dark);
+  background: red;
   color: var(--error);
 }
 
@@ -122,4 +131,9 @@
 .cm-s-omni .CodeMirror-matchingbracket {
   text-decoration: underline;
   color: white!important;
+}
+
+.error {
+  background-color: var(--error);
+  opacity: 1;
 }
