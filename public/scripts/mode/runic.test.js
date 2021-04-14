@@ -12,11 +12,38 @@
   "use strict";
 
   CodeMirror.defineMode('runic', () => {
+    const isKeyword = {
+      'bool': true, 'int': true, 'float': true, 'char': true, 'string': true,
+      'for': true, 'while': true, 'if': true,
+      'return': true
+    };
+
+    const isAtom = {
+      'true': true, 'false': true,
+    };
+
+    const isIO = {
+      'print': true,
+      'scan': true,
+    };
+
+    const isString = /['"`]/;
+    const isOperator = /[+\/%*=<>!\^|&\-]/;
+    const isBrackets = /[(){}\[\]]/;
+
+    function tokenFunction(stream, state) {
+      return 'function';
+    }
+
+    function tokenReturnType(stream, state) {
+      return 'return-type';
+    }
+
     function tokenString(stream, state) {
       let character;
 
       while(character = stream.next()) {
-        if(character === '"') {
+        if(/'|"|`/.test(character)) {
           state.tokenizer = tokenizer;
           break;
         }
@@ -47,17 +74,53 @@
       return 'comment';
     }
 
+    function tokenOperator(stream, state) {
+      return 'operator';
+    }
+
+    function tokenKeyword(stream, state) {
+      return 'keyword';
+    }
+
+    function tokenAtom(stream, state) {
+      return 'atom'
+    }
+
+    function tokenIO(stream, state) {
+      return 'io';
+    }
+
+    function tokenId(stream, state) {
+      if(state.previousToken === 'function')
+        return 'function-id';
+      return 'id';
+    }
+
     function tokenizer(stream, state) {
       const character = stream.next();
       
+      //token function
+      if(character === 'f') {
+        if(stream.eat('n') && stream.eatSpace()) {
+          return tokenFunction(stream, state);
+        }
+      }
+
+      //token return type
+      if(character === '-') {
+        if(stream.eat('>') && stream.eatSpace()) {
+          return tokenReturnType(stream, state);
+        }
+      }
+
       //token string
-      if(character === '"') {
+      if(isString.test(character)) {
         state.tokenizer = tokenString;
         return tokenString(stream, state);
       }
 
       //token number
-      if(/[\d]/.test(character)) {
+      if(/\d/.test(character)) {
         return tokenNumber(stream, state);
       }
 
@@ -72,7 +135,33 @@
         }
       }
 
-      return null;
+      //token operator
+      if(isOperator.test(character)) {
+        return tokenOperator(stream, state);
+      }
+
+      //token brackets
+      if(isBrackets.test(character)) {
+        return null;
+      }
+
+      //token keyword or atom or variable
+      stream.eatWhile(/[\w\$_\xa1-\uffff]/);
+      const token = stream.current();
+
+      if(isKeyword[token]) {
+        return tokenKeyword(stream, state);
+      }
+
+      if(isAtom[token]) {
+        return tokenAtom(stream, state);
+      }
+
+      if(isIO[token]) {
+        return tokenIO(stream, state);
+      }
+
+      return tokenId(stream, state);
     }
 
     return {
@@ -96,8 +185,8 @@
       },
 
       indent: (state, textAfter) => {
-        console.log('state:', state);
-        console.log('text after:', textAfter);
+        // console.log('state:', state);
+        // console.log('text after:', textAfter);
         return 2;
       },
 

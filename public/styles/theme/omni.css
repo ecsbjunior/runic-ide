@@ -43,11 +43,27 @@
 }
 
 .cm-s-omni span.cm-atom {
-  color: var(--type-specifier);
+  color: var(--atom);
+}
+
+.cm-s-omni span.cm-io {
+  color: var(--io);
 }
 
 .cm-s-omni span.cm-number {
   color: var(--number);
+}
+
+.cm-s-omni span.cm-operator {
+  color: var(--operator);
+}
+
+.cm-s-omni span.cm-function-id {
+  color: var(--function-id);
+}
+
+.cm-s-omni span.cm-id {
+  color: var(--id);
 }
 
 .cm-s-omni span.cm-property {
@@ -56,6 +72,14 @@
 
 .cm-s-omni span.cm-attribute {
   color: var(--attribute);
+}
+
+.cm-s-omni span.cm-function {
+  color: var(--function);
+}
+
+.cm-s-omni span.cm-return-type {
+  color: var(--text);
 }
 
 .cm-s-omni span.cm-keyword {
@@ -67,10 +91,6 @@
 }
 
 .cm-s-omni span.cm-variable {
-  color: var(--variable);
-}
-
-.cm-s-omni span.cm-variable-2 {
   color: var(--variable);
 }
 

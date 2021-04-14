@@ -14,14 +14,21 @@
   --pink: rgb(241, 121, 198);
   --yellow: rgb(235, 220, 92);
 
+  --id: var(--text);
+  --function-id: var(--green);
   --text: rgb(235, 235, 235);
   --comment: rgb(90, 75, 129);
   --line-number: rgb(90, 75, 129);
   --number: var(--cyan);
+  --operator: var(--pink);
   --type-specifier: var(--pink);
+  --atom: var(--cyan);
+  --io: var(--green);
   --property: var(--green);
   --attribute: var(--green);
   --keyword: var(--pink);
+  --function: var(--pink);
+  --return-type: var(--text);
   --string: var(--yellow);
   --variable: var(--text);
   --bracket: var(--text);

@@ -7,8 +7,12 @@ function main() {
     value: `fn main() -> int {
   //create a variabel
   int a = 3;
+  float b = (1+1)/2%3-5*10;
+
+  a++;
+  b--;
   
-  printf("hello world");
+  print("hello world true");
 
   for(int i = 0; i < 10; i++) {
     a = 10;
@@ -19,6 +23,8 @@ function main() {
     int c = 0;
   }
   */
+
+  while(true);
 
   return 0;
 }
